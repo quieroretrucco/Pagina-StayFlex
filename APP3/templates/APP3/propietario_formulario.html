@@ -1,0 +1,19 @@
+{% extends "APP3/padre.html" %}
+{% load static %}
+{% block  tituloQueCambia %}<div style="text-align: center;"><h1>Formulario-Agregar Propietario/a</h1></div>{% endblock tituloQueCambia  %}
+
+    {% block    contenidoQueCambia %}
+    {% if miFormulario.errors %}
+    <p style="color: red">Estan mal los datos, revisar</p>
+{% endif %}
+<div style="text-align: center;">
+<form action="" method="POST" style="text-align: center;">
+    {% csrf_token %}
+    <!-- Aca esta la magia de Django-->
+    <table style="margin: 0 auto;">
+        {{miFormulario.as_table}}
+    </table>
+    <input type="submit" value="Enviar">
+</form>
+</div>
+{% endblock contenidoQueCambia  %}
